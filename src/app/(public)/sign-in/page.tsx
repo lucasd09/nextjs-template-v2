@@ -1,7 +1,5 @@
 export default function SignInPage() {
   return (
-    <main>
-      <div>Sign in</div>
-    </main>
+    <div>Sign in</div>
   );
 }

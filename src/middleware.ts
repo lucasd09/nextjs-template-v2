@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { MiddlewareConfig, NextRequest, NextResponse } from "next/server";
 import {
   publicRoutes,
   REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE,
@@ -39,7 +39,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = {
+export const config: MiddlewareConfig = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:

@@ -4,11 +4,11 @@ const APP_NAME = "Next,js Template v2";
 
 const APP_DESCRIPTION = "A modern template to kickstart your project";
 
-const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = "";
+const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = "/sign-in";
 
 const publicRoutes: PublicRoute[] = [
-  { path: "sign-in", whenAuthenticated: "redirect" },
-  { path: "sign-up", whenAuthenticated: "redirect" },
+  { path: "/sign-in", whenAuthenticated: "redirect" },
+  { path: "/sign-up", whenAuthenticated: "redirect" },
 ];
 
 export {
