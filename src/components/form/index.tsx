@@ -14,7 +14,7 @@ export const Form = <TForm extends FieldValues>({
     <FormProvider {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit, onError)}
-        className={cn("space-y-6", className)}
+        className={cn("space-y-2", className)}
         {...props}
       >
         {children}

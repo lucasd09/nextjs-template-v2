@@ -11,7 +11,7 @@ export const SignInForm = ({ onFormSubmit }: SignInFormProps) => {
   return <Form form={form} onSubmit={onFormSubmit}>
     <Input name="email" form={form} />
     <Input name="password" type="password" form={form} />
-    <Button className="w-full">Submit</Button>
+    <Button className="w-full mt-2">Submit</Button>
   </Form>
 
 }
