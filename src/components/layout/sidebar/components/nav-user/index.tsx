@@ -12,12 +12,12 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  DropdownMenuSeparator, DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { useSidebar } from "@/components/ui/sidebar/hooks/use-sidebar"
-import { CreditCard, LogOut, MessageCircleWarning, MoreVertical, UserCircle2 } from "lucide-react"
+import { ChevronRight, CreditCard, LogOut, MessageCircleWarning, UserCircle2 } from "lucide-react"
+import { ThemeToggleButton } from "../theme-toggle-button"
 
 export function NavUser({
   user,
@@ -49,7 +49,7 @@ export function NavUser({
                   {user.email}
                 </span>
               </div>
-              <MoreVertical className="ml-auto size-4" />
+              <ChevronRight className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -86,6 +86,7 @@ export function NavUser({
                 <MessageCircleWarning />
                 Notifications
               </DropdownMenuItem>
+              <ThemeToggleButton />
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
