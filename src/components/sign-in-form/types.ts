@@ -1,10 +1,10 @@
-import { z } from "zod/v4";
+import { z } from "zod";
 
 export const signInFormSchema = z.object({
-  email: z.email(),
+  email: z.string().email(),
   password: z.string(),
 });
 
 export type SignInFormData = z.infer<typeof signInFormSchema>;
 
-export type SignInFormProps = { onFormSubmit: () => void };
+export type SignInFormProps = { onFormSubmit: (data: SignInFormData) => void };

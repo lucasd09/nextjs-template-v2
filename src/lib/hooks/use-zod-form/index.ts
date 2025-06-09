@@ -1,17 +1,17 @@
-import { FieldValues, useForm, UseFormReturn } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { DefaultValues, useForm } from "react-hook-form";
+import { ZodSchema, z } from "zod";
 import { UseZodFormOptions } from "./types";
 import { zodErrorMap } from "./zod-error-map";
-import z from "zod/v4";
-import { zodResolverV4 } from "./zod-resolver-v4";
 
-export const useZodForm = <TFieldValues extends FieldValues>({
+z.setErrorMap(zodErrorMap);
+
+export const useZodForm = <TSchema extends ZodSchema>({
   schema,
   defaultValues,
-}: UseZodFormOptions<TFieldValues>): UseFormReturn<TFieldValues> => {
-  return useForm<TFieldValues>({
-    resolver: zodResolverV4(schema),
-    defaultValues,
+}: UseZodFormOptions<TSchema>) => {
+  return useForm<z.infer<TSchema>>({
+    resolver: zodResolver(schema),
+    defaultValues: defaultValues as DefaultValues<TSchema>,
   });
 };
-
-z.config({ customError: zodErrorMap });

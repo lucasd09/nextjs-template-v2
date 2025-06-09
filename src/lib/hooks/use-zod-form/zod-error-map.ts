@@ -1,19 +1,21 @@
-import { z } from "zod/v4";
+import { z } from "zod";
 
-export const zodErrorMap: z.core.$ZodErrorMap<z.core.$ZodIssue> = (issue) => {
-  if (issue.code === "too_small" && issue.type === "string") {
-    return {
-      message: `Please enter at least ${issue.minimum} characters`,
-    };
+export const zodErrorMap: z.ZodErrorMap = (issue, ctx) => {
+  if (issue.code === "too_small") {
+    if (issue.type === "string") {
+      return {
+        message: `Please enter at least ${issue.minimum} characters`,
+      };
+    }
   }
 
-  if (issue.defaultError === "Required") {
+  if (ctx.defaultError === "Required") {
     return {
       message: "Please provide a value",
     };
   }
 
   return {
-    message: issue.defaultError,
+    message: ctx.defaultError,
   };
 };

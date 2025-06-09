@@ -1,13 +1,21 @@
+'use client'
 import { useZodForm } from "@/lib/hooks/use-zod-form"
-import { SignInFormProps, signInFormSchema } from "./types"
+import { SignInFormData, signInFormSchema } from "./types"
 import { Form } from "../form"
+import { Input } from "../ui/input"
+import { Button } from "../ui/button"
 
-export const SignInForm = ({ onFormSubmit }: SignInFormProps) => {
+export const SignInForm = () => {
   const form = useZodForm({ schema: signInFormSchema })
 
+  const handleFormSubmit = async (data: SignInFormData) => {
+    console.log(data);
+  }
 
-  return <Form form={form} onSubmit={onFormSubmit}>
-
+  return <Form form={form} onSubmit={handleFormSubmit}>
+    <Input name="email" form={form} />
+    <Input name="password" type="password" form={form} />
+    <Button className="w-full">Submit</Button>
   </Form>
 
 }

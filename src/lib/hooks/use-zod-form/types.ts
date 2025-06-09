@@ -1,7 +1,7 @@
-import { DefaultValues, FieldValues } from "react-hook-form";
-import { ZodType } from "zod/v4";
+import { Nullable } from "@/lib/types";
+import { ZodSchema, z } from "zod";
 
-export type UseZodFormOptions<TFieldValues extends FieldValues> = {
-  schema: ZodType<TFieldValues>;
-  defaultValues?: DefaultValues<TFieldValues>;
+export type UseZodFormOptions<TSchema extends ZodSchema> = {
+  schema: TSchema;
+  defaultValues?: Nullable<Partial<z.infer<TSchema>>>;
 };
