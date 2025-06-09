@@ -6,7 +6,6 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "
 import { SIDEBAR_COOKIE_MAX_AGE, SIDEBAR_COOKIE_NAME, SIDEBAR_KEYBOARD_SHORTCUT, SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON, SIDEBAR_WIDTH_MOBILE, sidebarMenuButtonVariants } from "./consts"
 import { ComponentProps, CSSProperties, useCallback, useEffect, useMemo, useState } from "react"
 import { useIsMobile } from "@/hooks/use-mobile"
-import { Separator } from "@radix-ui/react-separator"
 import { Slot } from "@radix-ui/react-slot"
 import { PanelLeftIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -16,6 +15,7 @@ import { SidebarContext } from "./context"
 import { SidebarContextProps } from "./context/types"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { VariantProps } from "class-variance-authority"
+import { Separator } from "@/components/ui/separator"
 
 const Sidebar = ({
   side = "left",
@@ -98,7 +98,7 @@ const Sidebar = ({
           // Adjust the padding for floating and inset variants.
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
-            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=right]:border-l",
           className
         )}
         {...props}
@@ -106,7 +106,7 @@ const Sidebar = ({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
+          className="bg-sidebar py-4 group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm"
         >
           {children}
         </div>
