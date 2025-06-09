@@ -10,7 +10,7 @@ export const AppHeader = () => {
 
   const sections = getBreadcrumbSections(path)
 
-  return <div className="flex items-center gap-2 mb-4">
+  return <div className="flex items-center gap-2 bg-background p-2 rounded-md border">
     <SidebarTrigger />
     <Breadcrumb>
       <BreadcrumbList>
