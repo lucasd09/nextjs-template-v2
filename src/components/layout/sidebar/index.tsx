@@ -25,8 +25,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/",
       icon: LayoutDashboard,
+    },
+    {
+      title: "Projects",
+      url: "/projects",
+      icon: Folder,
     },
     {
       title: "Lifecycle",
@@ -37,11 +42,6 @@ const data = {
       title: "Analytics",
       url: "#",
       icon: ChartAreaIcon,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: Folder,
     },
     {
       title: "Team",
